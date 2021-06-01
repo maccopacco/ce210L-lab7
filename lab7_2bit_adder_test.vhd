@@ -40,9 +40,6 @@ ARCHITECTURE test OF lab7_2bit_adder_test IS
    
    SIGNAL Awire, Bwire, Swire : STD_LOGIC_VECTOR(1 downto 0);
    SIGNAL Cbitwire, Vbitwire : STD_LOGIC; 
--- Add components as necessary
-   
--- Add aliases as necessary
  
    
 BEGIN
@@ -52,10 +49,10 @@ BEGIN
    Bwire(1) <= SW(1);    
    Bwire(0) <= SW(0);
    -- monitor the values of the switces visually by connecting them to LEDs
-   LEDR(4)   <= Awire(1);
-   LEDR(3)   <= Awire(0);
-   LEDR(1)   <= Bwire(1);
-   LEDR(0)   <= Bwire(0);
+   LEDR(4)  <= Awire(1);
+   LEDR(3)  <= Awire(0);
+   LEDR(1)  <= Bwire(1);
+   LEDR(0)  <= Bwire(0);
 
    DUT : lab7_2bit_adder port map (Awire, Bwire, '0', Swire, Cbitwire, Vbitwire); 
    
