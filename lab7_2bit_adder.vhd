@@ -30,28 +30,36 @@ END lab7_2bit_adder;
 
 ARCHITECTURE test OF lab7_2bit_adder IS
 
-   COMPONENT fulladder     -- You may need to change the component name to match your full-adder entity
+   COMPONENT fulladdermux      -- You may need to change the component name to match your full-adder entity
    Port ( A,B,Cin : in   STD_LOGIC;
           S, Cout : out  STD_LOGIC
    );
    END COMPONENT;
+	
+	COMPONENT xor_2
+	 Port ( a : in   STD_LOGIC;
+           b : in   STD_LOGIC;
+           y : out  STD_LOGIC);
+	END COMPONENT;
    
    
-   
--- Add components/signals as necessary
-   
-   
--- Add aliases as necessary
+   SIGNAL FA_0_S_0  : STD_LOGIC;
+	SIGNAL FA_0_COUT : STD_LOGIC;
+	SIGNAL FA_1_S_1  : STD_LOGIC;
+	SIGNAL FA_1_COUT : STD_LOGIC;
+	SIGNAL V_OUT     : STD_LOGIC;
    
    
 BEGIN
 
-   FA_0 : fulladder port map (  );
-   FA_1 : fulladder port map (  );
+   FA_0 : fulladdermux port map (A(0), B(0), '0', FA_0_S_0, FA_0_COUT);
+   FA_1 : fulladdermux port map (A(1), B(1), FA_0_COUT, FA_1_S_1, FA_1_COUT);
+	XOR0 : xor_2 		  port map (FA_0_COUT, FA_1_COUT, V_OUT);
    
    -- You may need some assignments in addition to the port maps above
-   C <=   ;
-   V <=   ;
+	S <= FA_1_S_1 & FA_0_S_0;
+   C <= FA_1_COUT;
+   V <= V_OUT;
    
    
 END test;
