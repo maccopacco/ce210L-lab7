@@ -1,8 +1,8 @@
 ----------------------------------------------------------------------------------
 -- Company:        Kettering University
--- Engineer:       David Foster
+-- Engineer:       Max Dreher
 -- 
--- Create Date:    9/1/20
+-- Create Date:    6/1/2021
 -- Design Name:    
 -- Module Name:    2-bit adder
 -- Project Name:   
@@ -14,6 +14,7 @@
 --
 -- Revision: 
 -- Revision 1.01 - File Created
+-- Revision 1.02 - Updated with fulladdermux
 -- Additional Comments: 
 --
 ----------------------------------------------------------------------------------
